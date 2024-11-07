@@ -1,0 +1,36 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  align-items: center;
+}
+
+.fancy {
+    font-weight: 700;
+    color: hsl(39, 100%, 50%);
+}
+
+.title {
+    padding: 0.25rem 1rem;
+    font-size: 1.3rem;
+    font-weight: 100;
+}
+nav {
+    padding: 0 1rem;
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    li {
+        a {
+            text-decoration: none;
+            color: #999;
+            transition: color 300ms;
+            &.active, &:hover {
+                color: hsl(39, 100%, 50%);
+            }
+        }
+
+    }
+  }
+}

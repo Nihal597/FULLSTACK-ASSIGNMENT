@@ -1,0 +1,83 @@
+@if(status === "initial") {
+<form [formGroup]="registerForm" (ngSubmit)="submit()">
+  <div class="title"><h1>Create Account</h1></div>
+  <div class="body">
+    <input
+      type="text"
+      placeholder="Enter your First Name"
+      formControlName="firstName"
+    />
+    @if (registerForm.controls["firstName"].touched &&
+    registerForm.controls["firstName"].errors?.["required"]) {
+    <small>firstName is requried</small>
+    }
+
+    <input
+      type="text"
+      placeholder="Enter your Last Name"
+      formControlName="lastName"
+    />
+    @if (registerForm.controls["lastName"].touched &&
+    registerForm.controls["lastName"].errors?.["required"]) {
+    <small>last name is requried</small>
+    }
+    <input
+      type="text"
+      placeholder="Enter your Location"
+      formControlName="location"
+    />
+    @if (registerForm.controls["location"].touched &&
+    registerForm.controls["location"].errors?.["required"]) {
+    <small>location is requried</small>
+    }
+    <input type="text" placeholder="Enter your Email" formControlName="email" />
+    @if (registerForm.controls["email"].touched &&
+    registerForm.controls["email"].errors?.["required"]) {
+    <small>email is requried</small>
+    } @if (registerForm.controls["email"].touched &&
+    registerForm.controls["email"].errors?.["email"]) {
+    <small>Invalid email</small>
+    }
+    <input
+      type="password"
+      placeholder="Enter your Password"
+      formControlName="password"
+    />
+    @if (registerForm.controls["password"].touched &&
+    registerForm.controls["password"].errors?.["required"]) {
+    <small>password is requried</small>
+    } @if (registerForm.controls["password"].touched &&
+    registerForm.controls["password"].errors?.["minlength"]) {
+    <small>password should be at least 6 characters</small>
+    }
+    <input
+      type="password"
+      placeholder="Retype your Password"
+      formControlName="retypePassword"
+    />
+    @if (registerForm.controls["retypePassword"].touched &&
+    registerForm.controls["retypePassword"].errors?.["required"]) {
+    <small>retype password is requried</small>
+    } @if (registerForm.controls["retypePassword"].touched &&
+    registerForm.controls["retypePassword"].errors?.["minlength"]) {
+    <small>password should be at least 6 characters</small>
+    } @if (registerForm.controls["retypePassword"].touched &&
+    !registerForm.controls["retypePassword"].errors &&
+    registerForm.errors?.["passwordMatch"]) {
+    <small>Password doesn't match</small>
+    }
+    <button type="submit" [disabled]="registerForm.invalid">Submit</button>
+  </div>
+</form>
+} @else if(status === "successful") {
+
+<form>
+  <div class="title">
+    <h1>Registered User</h1>
+  </div>
+  <div class="body">
+    <p>User Registered successfully.</p>
+    <button type="button" routerLink="/login">Back to login</button>
+  </div>
+</form>
+}

@@ -1,0 +1,37 @@
+
+<form class="search-container" [formGroup]="searchForm" (ngSubmit)="search()">
+  <input type="text" class="search-box" placeholder="All Books Search" formControlName="query">
+  <button class="search-button">Search</button>
+</form>
+
+
+<h1 class="title">Welcome, {{ name() }}</h1>
+
+<div class="card-container">
+  <button type="button" class="add-book" title="Add Book" routerLink="./add">
+    +
+  </button>
+  @for (booklisting of (booklistings | async)?.booklistings; track
+  booklisting.id) {
+  <div class="card">
+    <div class="card-box"></div>
+    <div class="card-content">
+      <div class="card-title">{{ booklisting.title }}</div>
+      <div class="by">by</div>
+      <div class="card-subtitle">{{ booklisting.author }}</div>
+    </div>
+    <div class="card-options">
+      <button type="button" [routerLink]="['.', booklisting.id, 'edit']">
+        Edit
+      </button>
+      <button
+        type="button"
+        class="delete-button"
+        (click)="delete(booklisting.id)"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+  }
+</div>

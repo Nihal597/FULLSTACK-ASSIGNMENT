@@ -1,0 +1,50 @@
+<div class="section">
+  <div class="on-top">
+    <button class="back-button" (click)="goBack()">&lt; Back</button>
+  </div>
+  <div class="container">
+    @if (book$ | async; as book) {
+    <div class="card">
+      <div class="card-box"></div>
+      <div class="card-content">
+        <div class="card-title">{{ book.title }}</div>
+        <div class="by">by</div>
+        <div class="card-subtitle">{{ book.author }}</div>
+      </div>
+      <div class="card-actions"></div>
+    </div>
+
+    <div class="details-section">
+      <div class="property">
+        <label for="">Title</label>
+        <div>{{ book.title }}</div>
+      </div>
+
+      <div class="property">
+        <label for="">Author</label>
+        <div>{{ book.author }}</div>
+      </div>
+      <div class="property">
+        <label for="">Genre</label>
+        <div>{{ book.genre }}</div>
+      </div>
+      <div class="property">
+        <label for="">Location</label>
+        <div>{{ book.location }}</div>
+      </div>
+      <div class="property">
+        <label for="">Owned by</label>
+        <div>{{ book.name }}</div>
+      </div>
+      <div class="property">
+        <label for="">Condition</label>
+        <div>{{ book.condition }}</div>
+      </div>
+      <div class="property">
+        <label for="">Availability</label>
+        <div>{{ book.availability_status }}</div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

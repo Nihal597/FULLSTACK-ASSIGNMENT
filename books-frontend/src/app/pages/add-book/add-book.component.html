@@ -1,0 +1,44 @@
+<form [formGroup]="addBookForm" (ngSubmit)="submit()">
+  <div class="title">
+    <button type="button" class="back-button" routerLink="/book-listings">
+      &lt; back
+    </button>
+    <h1>Add Book</h1>
+  </div>
+  <div class="body">
+    <input type="text" placeholder="Enter book title" formControlName="title" />
+    @if (titleControl.touched && titleControl.errors?.["required"]) {
+    <small>Title is required</small>
+    }
+    <input
+      type="text"
+      placeholder="Enter book author"
+      formControlName="author"
+    />
+    @if (authorControl.touched && authorControl.errors?.["required"]) {
+    <small>Author is required</small>
+    }
+    <input type="text" placeholder="Enter book genre" formControlName="genre" />
+    @if (genreControl.touched && genreControl.errors?.["required"]) {
+    <small>Genre is required</small>
+    }
+    <input
+      type="text"
+      placeholder="Enter book condition"
+      formControlName="condition"
+    />
+    @if (conditionControl.touched && conditionControl.errors?.["required"]) {
+    <small>Condition is required</small>
+    }
+    <input
+      type="text"
+      placeholder="Enter book availability status"
+      formControlName="availability_status"
+    />
+    @if (availabilityStatusControl.touched &&
+    availabilityStatusControl.errors?.["required"]) {
+    <small>Availability status is required</small>
+    }
+    <button type="submit">Submit</button>
+  </div>
+</form>

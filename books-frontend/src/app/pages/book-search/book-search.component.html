@@ -1,0 +1,69 @@
+<form [formGroup]="searchForm" (ngSubmit)="search()">
+  <div class="search-container">
+    <input
+      type="text"
+      class="search-box"
+      placeholder="All Books Search"
+      formControlName="query"
+    />
+    <button class="search-button">Search</button>
+  </div>
+  <div class="filter-title">Filters</div>
+  <div class="filter-container">
+    <label>Show only available</label>
+    <input
+      type="checkbox"
+      name="availability"
+      value="available"
+      formControlName="availability_status"
+    />
+  </div>
+
+  <div class="location">
+    <div class="location-title">Location</div>
+    <label>My Location</label>
+    <input
+      type="checkbox"
+      name="location"
+      formControlName="location"
+      value="My Location"
+    />
+  </div>
+
+  <div class="condition">
+    <div class="condition-title">Condition</div>
+    <label>New</label>
+    <input
+      type="checkbox"
+      name="condition"
+      formControlName="condition"
+      value="New"
+    />
+  </div>
+
+  <div class="genre">
+    <div class="genre-title">Genre</div>
+    <input
+      type="text"
+      name="genre"
+      id=""
+      placeholder="Genre"
+      formControlName="genre"
+    />
+  </div>
+</form>
+
+<div class="card-container">
+  @for (booklisting of booklistings(); track booklisting.id) {
+  <div class="card">
+    <div class="card-box"></div>
+    <div class="card-content">
+      <div class="card-title">{{ booklisting.title }}</div>
+      <div class="by">by</div>
+      <div class="card-subtitle">{{ booklisting.author }}</div>
+    </div>
+    <div class="card-options"><button [routerLink]="['/book', booklisting.id]">View</button></div>
+  </div>
+  }
+</div>
+<button class="load-more-button" type="button" (click)="loadMore()">Load more</button>

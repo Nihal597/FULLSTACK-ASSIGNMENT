@@ -1,0 +1,15 @@
+<div class="title">Book<span class="fancy">Exchange</span>App</div>
+
+<nav>
+  <ul>
+    @if (!(userLoggedIn | async)) {
+    <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+    <li><a routerLink="/register" routerLinkActive="active">Register</a></li>
+    } @else {
+    <li>
+      <a routerLink="/book-listings" routerLinkActive="active">My Books</a>
+    </li>
+    <li><a (click)="logout()">Logout</a></li>
+    }
+  </ul>
+</nav>
