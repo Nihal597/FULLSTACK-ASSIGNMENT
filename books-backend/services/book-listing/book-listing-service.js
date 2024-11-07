@@ -2,7 +2,7 @@ import { query } from "../../database/db.js"
 
 export const getAllBookListings = async (userId) => {
     try {
-        const res = await query('SELECT * FROM "book-users".book_listing WHERE owner_id = $1', [userId])
+        const res = await query('SELECT * FROM "book-users".book_listing WHERE owner_id = $1 ORDER BY created_time asc', [userId])
         return [res.rows, null];
     }
     catch (error) {
