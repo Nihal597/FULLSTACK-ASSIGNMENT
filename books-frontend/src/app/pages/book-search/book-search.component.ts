@@ -36,6 +36,7 @@ export class BookSearchComponent implements OnInit {
         location: queryParams['location'] === 'true',
         genre: queryParams['genre'],
       });
+      this.searchForm.controls.query.patchValue(queryParams['query']);
     });
   }
 

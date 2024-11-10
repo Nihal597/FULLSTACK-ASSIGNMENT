@@ -9,6 +9,13 @@ services:
     env_file:
       - ./environments/backend.env
 
+  frontend:
+    build: ./books-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - books-backend
+
   postgres-db:
     image: postgres:latest
     restart: always

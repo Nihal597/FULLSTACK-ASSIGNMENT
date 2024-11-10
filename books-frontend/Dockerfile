@@ -14,8 +14,6 @@ RUN npm run build
 
 FROM nginx as production
 
-WORKDIR /app
-
 COPY --from=stage /app/dist/books-frontend/browser /var/www/bookexchange.com
 
 COPY nginx.conf /etc/nginx/nginx.conf
