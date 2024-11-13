@@ -352,12 +352,52 @@
         ],
         "parameters": [
           {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "The"
+          },
+          {
+            "name": "genre",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Fiction"
+          },
+          {
+            "name": "availability_status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Available"
+          },
+          {
             "name": "condition",
             "in": "query",
             "schema": {
               "type": "string"
             },
             "example": "New"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "int"
+            },
+            "example": 5
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "int"
+            },
+            "example": 0
           }
         ],
         "responses": {

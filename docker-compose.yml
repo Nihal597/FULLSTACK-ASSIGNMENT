@@ -37,9 +37,10 @@ services:
     ports:
       - 5050:5050
 
-  mailcatcher:
+  mailer:
     restart: on-failure
     image: dockage/mailcatcher:latest
+    container_name: books-mailer
     ports:
     - "1080:1080"
     - "1025:1025"

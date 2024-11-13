@@ -1,16 +1,17 @@
 import nodemailer from "nodemailer";
 
-const transporter = nodemailer.createTransport({
-  host: "localhost",
-  port: 1025,
-  secure: false,
-  auth: {
-    user: "nihal1491@gmail.com",
-    pass: "abc123",
-  },
-});
-
 export const sendEmail = async (name, emailId, pwdRecoveryURL) => {
+
+  const transporter = nodemailer.createTransport({
+    host: process.env.MAILHOST,
+    port: process.env.MAILPORT,
+    secure: process.env.MAILSECURE === 'true',
+    auth: {
+      user: process.env.MAILUSER,
+      pass: process.env.MAILPASS,
+    },
+  });
+
   //   transport object to send mail
   const messageInfo = await transporter.sendMail({
     from: '"Book Exchange Support" <support@bookexchange.com>',
